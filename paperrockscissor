@@ -1,0 +1,53 @@
+import random
+
+user_points = 0
+computer_points = 0
+
+options = ["r", "t", "p"]
+
+print("BEM VINDO AO PEDRA, PAPEL E TESOURA \n")
+print("BOM JOGO E BOA SORTE!!")
+
+while True:
+    user_choice = input("Escolha R (Pedra)/ T (Tesoura)/ P (Papel) ou Q (Sair)   ").lower()
+
+    if user_choice == 'q':
+        break
+
+    computer_choice = random.randint(0,2)
+    # o 0 representa a pedra, o 1 representa a tesoura e o 2 representa o papel
+
+    computer_options = options[computer_choice]
+
+    print("O computador escolheu " + computer_options)
+
+    if user_choice == computer_options:
+        print("Empatou!")
+
+    elif user_choice == "p" and computer_options == "t":
+        print("Voce ganhouu!!!")
+        user_points = user_points + 1
+
+    elif user_choice == "t" and computer_options == "p":
+        print("Voce ganhouu!!!")
+        user_points = user_points + 1
+
+    elif user_choice == "p" and computer_options == "r":
+        print("Voce ganhouu!!!")
+        user_points = user_points + 1
+
+    else:
+        print("Voce perdeu! :(")
+        computer_points = computer_points + 1
+
+print("Sua pontuacao: " + str(user_points))
+print("Pontuacao da Maquina: " + str(computer_points))
+
+if user_points > computer_points:
+    print("VOCE GANHOU O JOGO!")
+elif user_points < computer_points:
+    print("VOCE INFELIZMENTE PERDEU!!!")
+else:
+    print("EMPATE!")
+    
+print("Obrigado por jogar!")
